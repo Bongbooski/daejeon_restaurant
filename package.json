@@ -1,18 +1,30 @@
 {
-  "name": "express_example",
+  "name": "daejeon_restaurant",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "대전 레스토랑",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bongbooski/daejeon_restaurant.git"
+  },
+  "author": "booski",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bongbooski/daejeon_restaurant/issues"
+  },
+  "homepage": "https://github.com/Bongbooski/daejeon_restaurant#readme",
   "dependencies": {
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-error-handler": "^1.1.0",
-    "express-session": "^1.15.3"
+    "express-session": "^1.15.3",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "serve-static": "^1.12.3"
   }
 }
