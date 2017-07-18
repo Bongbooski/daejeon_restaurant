@@ -16,7 +16,7 @@ var app = express();
 app.set('port', process.env.PORT || 3000);
 
 //익스프레스 서버시작
-var server = http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app).listen(app.get('port'), function () {
     console.log('익스프레스로 웹서버를 실행함 : ' + app.get('port'));
 });
 
@@ -24,24 +24,26 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 app.use('/public', static(path.join(__dirname, 'public')));
 
 //미들웨어 등록
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(expressSession({
-    secret:'my key',
-    resave:true,
-    saveUninitialized:true
+    secret: 'my key',
+    resave: true,
+    saveUninitialized: true
 }));
 
 var router = express.Router();
+router.route('/').get(function (req, res) {
+    res.sendFile(path.join(__dirname+'/index.html'));
+});
 
 app.use('/', router);
-
 //404에러페이지 처리
 var errorHandler = expressErrorHandler({
-  static: {
-      '404': './public/404.html'
-  } 
+    static: {
+        '404': './public/404.html'
+    }
 });
 
 app.use(expressErrorHandler.httpError(404));
@@ -51,11 +53,3 @@ app.use(errorHandler);
 //app.all('*', function(req, res){
 //    res.status(404).send("<h1>요청하신 페이지는 없습니다</h1>");
 //});
-
-
-//----------------------------------//
-
-//실행안됨 ㅎㅎㅎㅎㅎㅎ
-app.get('/', function (req, res) {
-  res.redirect('/index.html');
-});
