@@ -21,7 +21,9 @@ var server = http.createServer(app).listen(app.get('port'), function () {
 });
 
 //public폴더 연결
+//__dirname -> 루트디렉토리
 app.use('/public', static(path.join(__dirname, 'public')));
+app.use('/', static(path.join(__dirname, '')));
 
 //미들웨어 등록
 app.use(bodyParser.urlencoded({extended: false}));
@@ -33,12 +35,14 @@ app.use(expressSession({
     saveUninitialized: true
 }));
 
+//루트로 접속했을때 라우팅함수
 var router = express.Router();
 router.route('/').get(function (req, res) {
     res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 app.use('/', router);
+
 //404에러페이지 처리
 var errorHandler = expressErrorHandler({
     static: {
