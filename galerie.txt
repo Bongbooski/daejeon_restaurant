@@ -1,0 +1,19 @@
+<h1>Galerie foto</h1>
+<table border="0">
+  <caption></caption>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+</table>

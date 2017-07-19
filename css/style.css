@@ -31,3 +31,15 @@ article {
   border-bottom: 3px gray solid;
 
 }
+
+#coreea1 {
+  border-bottom: 1px gray solid;
+}
+
+#korea1 {
+  float: left;
+}
+
+#korea2 {
+  float: right;
+}
