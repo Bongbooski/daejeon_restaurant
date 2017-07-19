@@ -1,0 +1,26 @@
+<table border="1">
+  <caption></caption>
+    <thead style="background:green" >
+      <tr>
+        <th>Paste - Pasta</th>
+      </tr>
+      </thead>
+      <tbody >
+        <tr>
+          <th>잡채
+            <img src="/img/1.jpg" alt="">
+          </th>
+        </tr>
+        <tr>
+          <th>잡채밥</th>
+        </tr>
+        <tr>
+          <th>볶음우동</th>
+        </tr>
+        <tr>
+          <th>비빔국수</th>
+        </tr>
+        <tr>
+          <th>짜장면</th>
+        </tr>
+      </tbody>
