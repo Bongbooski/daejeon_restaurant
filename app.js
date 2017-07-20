@@ -1,22 +1,22 @@
-var express = require('express');
-var http = require('http');
-var static = require('serve-static');
-var path = require('path');
+const express = require('express');
+const http = require('http');
+const static = require('serve-static');
+const path = require('path');
 
-var bodyParser = require('body-parser');
-var cookieParser = require("cookie-parser");
-var expressSession = require('express-session');
+const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
+const expressSession = require('express-session');
 //에러 핸들러 모듈(예외처리)
-var expressErrorHandler = require('express-error-handler');
+const expressErrorHandler = require('express-error-handler');
 
 //익스프레스 객체 생성
-var app = express();
+const app = express();
 
 //포트 연결
 app.set('port', process.env.PORT || 3000);
 
 //익스프레스 서버시작
-var server = http.createServer(app).listen(app.get('port'), function () {
+const server = http.createServer(app).listen(app.get('port'), () => {
     console.log('익스프레스로 웹서버를 실행함 : ' + app.get('port'));
 });
 
@@ -36,15 +36,15 @@ app.use(expressSession({
 }));
 
 //루트로 접속했을때 라우팅함수
-var router = express.Router();
-router.route('/').get(function (req, res) {
+const router = express.Router();
+router.route('/').get((req, res)=> {
     res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 app.use('/', router);
 
 //404에러페이지 처리
-var errorHandler = expressErrorHandler({
+const errorHandler = expressErrorHandler({
     static: {
         '404': './public/404.html'
     }
