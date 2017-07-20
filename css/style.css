@@ -26,7 +26,6 @@ nav table {
 }
 
 article {
-  width: 720px;
   padding-bottom: 10px;
   border-bottom: 3px gray solid;
 
@@ -42,4 +41,9 @@ article {
 
 #korea2 {
   float: right;
+}
+
+#contact {
+  padding-bottom: 10px;
+  border-bottom: 1px gray solid;
 }
