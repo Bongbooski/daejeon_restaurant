@@ -38,7 +38,7 @@ app.use(expressSession({
 //루트로 접속했을때 라우팅함수
 var router = express.Router();
 router.route('/').get(function (req, res) {
-    res.sendFile(path.join(__dirname+'/daejeon_restaurant.php'));
+    res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 app.use('/', router);
