@@ -1,85 +1,2196 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Restaurant Daejeon</title>
-    <link rel="stylesheet" type="text/css" href="http://localhost/daejeon/css/style.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
-    <header>
-      <img src="/img/drk.png" />
-    </header>
-    <nav>
-      <table border="1" id="meniu">
-	      <caption></caption>
-	        <thead style="background:gray">
-		        <tr>
-              <th><a href="/index.html">Home</a></th>
-			        <th><a href="/meniu.html">Meniu</a></th>
-			        <th><a href="/coreea.html">Coreea</a></th>
-              <th><a href="/galerie.html">Galerie</a></th>
-              <th><a href="/contact.html">Contact</a></th>
-              <th><a href="/feedback.html">FeedBack</a></th>
-		        </tr>
-	        </thead>
-      </table>
-    </nav>
-    <img src="/img/LHJ_4127.jpg" />
 
-    <article>
+<head>
+  <meta charset="utf-8">
+  <title>Restaurant Daejeon</title>
+  <!-- <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <style type="text/css" media="screen">
+    .breadcrumb1 {}
 
-      <table border="1">
-	      <caption></caption>
-	        <thead style="background:green" >
-		        <tr>
-			        <th>Paste - Pasta</th>
-		        </tr>
-            </thead>
-            <tbody >
+    .te_overflow {
+      overflow: hidden !important
+    }
+
+    .te_dragging {
+      cursor: move !important
+    }
+
+    #tu_overlay,
+    .te_top_up {
+      top: 0;
+      left: 0
+    }
+
+    #tu_overlay {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      z-index: 999
+    }
+
+    #temp_up {
+      top: -9999px;
+      z-index: -1
+    }
+
+    .te_transparent {
+      opacity: 0
+    }
+
+    .te_shaded {
+      opacity: .65;
+      background: black
+    }
+
+    .te_scrollable {
+      overflow: auto
+    }
+
+    .te_top_up {
+      position: absolute;
+      z-index: 1000
+    }
+
+    .te_top_up a {
+      border: 0
+    }
+
+    .te_top_up a:hover {
+      border: 0
+    }
+
+    .te_top_up .ui-resizable-se {
+      position: absolute !important;
+      background-color: transparent !important;
+      border: 0 !important
+    }
+
+    .te_wrapper {
+      position: relative
+    }
+
+    .te_title {
+      width: 100%;
+      color: white;
+      font-family: "Lucida Grande", "Arial";
+      font-size: 11px;
+      position: absolute;
+      text-align: center;
+      z-index: 1001
+    }
+
+    .te_frame,
+    #tu_center_wrapper {
+      border-collapse: collapse
+    }
+
+    .te_frame tr,
+    .te_frame td {
+      margin: 0;
+      padding: 0
+    }
+
+    .te_frame .te_left,
+    .te_frame .te_middle,
+    .te_frame .te_right {
+      padding: 0
+    }
+
+    .te_controls {
+      position: absolute;
+      z-index: 1001
+    }
+
+    .te_close_link,
+    .te_previous_link,
+    .te_next_link {
+      cursor: pointer
+    }
+
+    .te_close_link {
+      position: absolute;
+      z-index: 1002
+    }
+
+    .te_previous_link,
+    .te_next_link {
+      display: block;
+      float: left
+    }
+
+    #tu_center_wrapper {
+      position: absolute;
+      z-index: 1000
+    }
+
+    #tu_loader {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      /*background: url(images/top_up/loader.gif) no-repeat 50% 50%;*/
+      display: block;
+      z-index: 1003
+    }
+
+    #top_up .te_dashboard .ui-resizable-se {
+      width: 10px !important;
+      height: 10px !important;
+      bottom: 12px !important;
+      right: 10px !important;
+      /*background-image: url(images/top_up/dashboard/sprite.png) !important;*/
+      background-position: 0 0 !important
+    }
+
+    .te_dashboard .te_title {
+      top: -9px;
+      font-weight: bold;
+      text-shadow: 1px 1px 1px black
+    }
+
+    .te_dashboard .te_corner,
+    .te_dashboard .te_rib {
+      /*background-image: url(images/top_up/dashboard/sprite.png)*/
+    }
+
+    .te_dashboard .te_top,
+    .te_dashboard .te_bottom {
+      height: 20px
+    }
+
+    .te_dashboard .te_left_filler {
+      width: 20px
+    }
+
+    .te_dashboard .te_right_filler {
+      width: 19px
+    }
+
+    .te_dashboard .te_middle .te_middle {
+      /*background: url(images/top_up/dashboard/middle.png)*/
+    }
+
+    .te_dashboard .te_top .te_left {
+      background-position: -17px -29px
+    }
+
+    .te_dashboard .te_top .te_middle {
+      background-position: 0 -71px
+    }
+
+    .te_dashboard .te_top .te_right {
+      background-position: -33px -29px
+    }
+
+    .te_dashboard .te_middle .te_left {
+      background-position: -17px -232px
+    }
+
+    .te_dashboard .te_middle .te_right {
+      background-position: -33px -232px
+    }
+
+    .te_dashboard .te_bottom .te_left {
+      background-position: -17px -47px
+    }
+
+    .te_dashboard .te_bottom .te_middle {
+      background-position: -17px -89px
+    }
+
+    .te_dashboard .te_bottom .te_right {
+      background-position: -33px -47px
+    }
+
+    .te_dashboard .te_content {
+      margin: -11px -12px -11px -13px
+    }
+
+    .te_dashboard .te_controls {
+      left: 50%;
+      width: 63px;
+      height: 29px;
+      margin-left: -33px;
+      padding-left: 5px;
+      bottom: 35px;
+      /*background-image: url(images/top_up/dashboard/sprite.png);*/
+      background-position: 0 -178px
+    }
+
+    .te_dashboard .te_previous_link,
+    .te_dashboard .te_next_link {
+      width: 31px;
+      height: 29px;
+      /*background-image: url(images/top_up/dashboard/sprite.png)*/
+    }
+
+    .te_dashboard .te_previous_link {
+      background-position: 66px -113px
+    }
+
+    .te_dashboard .te_next_link {
+      background-position: 30px -113px
+    }
+
+    .te_dashboard .te_previous_link:hover {
+      background-position: 66px -142px
+    }
+
+    .te_dashboard .te_next_link:hover {
+      background-position: 30px -142px
+    }
+
+    .te_dashboard .te_close_link {
+      width: 28px;
+      height: 26px;
+      top: -1px;
+      right: -6px;
+      /*background-image: url(images/top_up/dashboard/sprite.png);*/
+      background-position: -20px 0
+    }
+
+    #top_up .te_quicklook .ui-resizable-se {
+      width: 10px !important;
+      height: 10px !important;
+      bottom: 12px !important;
+      right: 9px !important;
+      /*background-image: url(images/top_up/quicklook/sprite.png) !important;*/
+      background-position: -75px -181px !important
+    }
+
+    .te_quicklook .te_title {
+      top: 6px
+    }
+
+    .te_quicklook .te_corner,
+    .te_quicklook .te_rib {
+      /*background-image: url(images/top_up/quicklook/sprite.png)*/
+    }
+
+    .te_quicklook .te_top {
+      height: 24px
+    }
+
+    .te_quicklook .te_bottom {
+      height: 56px
+    }
+
+    .te_quicklook .te_left_filler,
+    .te_quicklook .te_right_filler {
+      width: 12px
+    }
+
+    .te_quicklook .te_middle .te_middle {
+      /*background: url(images/top_up/quicklook/middle.png)*/
+    }
+
+    .te_quicklook .te_top .te_left {
+      background-position: 0 0
+    }
+
+    .te_quicklook .te_top .te_middle {
+      background-position: 0 -30px
+    }
+
+    .te_quicklook .te_top .te_right {
+      background-position: 12px 0
+    }
+
+    .te_quicklook .te_middle .te_left {
+      background-position: 0 -181px
+    }
+
+    .te_quicklook .te_middle .te_right {
+      background-position: 12px -181px
+    }
+
+    .te_quicklook .te_bottom .te_left {
+      background-position: 0 -122px
+    }
+
+    .te_quicklook .te_bottom .te_middle {
+      background-position: 0 -61px
+    }
+
+    .te_quicklook .te_bottom .te_right {
+      background-position: 12px -122px
+    }
+
+    .te_quicklook .te_content {
+      margin: 0 -7px
+    }
+
+    .te_quicklook .te_controls {
+      left: 50%;
+      width: 66px;
+      margin-left: -33px;
+      bottom: 18px
+    }
+
+    .te_quicklook .te_previous_link,
+    .te_quicklook .te_next_link {
+      width: 31px;
+      height: 29px;
+      margin: 0 1px;
+      /*background-image: url(images/top_up/quicklook/sprite.png)*/
+    }
+
+    .te_quicklook .te_previous_link {
+      background-position: 89px -195px
+    }
+
+    .te_quicklook .te_next_link {
+      background-position: 52px -195px
+    }
+
+    .te_quicklook .te_previous_link:hover {
+      background-position: 89px -226px
+    }
+
+    .te_quicklook .te_next_link:hover {
+      background-position: 52px -226px
+    }
+
+    .te_quicklook .te_close_link {
+      width: 13px;
+      height: 13px;
+      top: 7px;
+      left: 9px;
+      /*background-image: url(images/top_up/quicklook/sprite.png);*/
+      background-position: -24px -181px
+    }
+
+    #top_up .te_flatlook .ui-resizable-se {
+      width: 10px !important;
+      height: 10px !important;
+      bottom: 22px !important;
+      right: 14px !important;
+      /*background-image: url(images/top_up/flatlook/sprite.png) !important;*/
+      background-position: -75px -181px !important
+    }
+
+    .te_flatlook .te_title {
+      top: 5px;
+      text-shadow: 1px 1px 2px #2A2A2A
+    }
+
+    .te_flatlook .te_corner,
+    .te_flatlook .te_rib {
+      /*background-image: url(images/top_up/flatlook/sprite.png)*/
+    }
+
+    .te_flatlook .te_top {
+      height: 26px
+    }
+
+    .te_flatlook .te_bottom {
+      height: 29px
+    }
+
+    .te_flatlook .te_left_filler,
+    .te_flatlook .te_right_filler {
+      width: 21px
+    }
+
+    .te_flatlook .te_middle .te_middle {
+      /*background: url(images/top_up/flatlook/middle.png) repeat-x top*/
+    }
+
+    .te_flatlook .te_top .te_left {
+      background-position: 0 0
+    }
+
+    .te_flatlook .te_top .te_middle {
+      background-position: 0 -29px
+    }
+
+    .te_flatlook .te_top .te_right {
+      background-position: -89px 0
+    }
+
+    .te_flatlook .te_middle .te_left {
+      background-position: 0 -181px
+    }
+
+    .te_flatlook .te_middle .te_right {
+      background-position: -89px -181px
+    }
+
+    .te_flatlook .te_bottom .te_left {
+      background-position: 0 -90px
+    }
+
+    .te_flatlook .te_bottom .te_middle {
+      background-position: 0 -58px
+    }
+
+    .te_flatlook .te_bottom .te_right {
+      background-position: -89px -90px
+    }
+
+    .te_flatlook .te_content {
+      margin: -2px -11px -3px -11px
+    }
+
+    .te_flatlook .te_controls {
+      left: 50%;
+      width: 66px;
+      margin-left: -33px;
+      bottom: 18px
+    }
+
+    .te_flatlook .te_previous_link,
+    .te_flatlook .te_next_link {
+      width: 31px;
+      height: 29px;
+      margin: 0 1px;
+      /*background-image: url(images/top_up/flatlook/sprite.png)*/
+    }
+
+    .te_flatlook .te_previous_link {
+      background-position: 89px -195px
+    }
+
+    .te_flatlook .te_next_link {
+      background-position: 52px -195px
+    }
+
+    .te_flatlook .te_previous_link:hover {
+      background-position: 89px -226px
+    }
+
+    .te_flatlook .te_next_link:hover {
+      background-position: 52px -226px
+    }
+
+    .te_flatlook .te_close_link {
+      width: 13px;
+      height: 13px;
+      top: 6px;
+      left: 15px;
+      /*background-image: url(images/top_up/flatlook/sprite.png);*/
+      background-position: -24px -181px
+    }
+  </style>
+</head>
+
+<body bgcolor="#CCCCCC">
+  <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr bgcolor="#FFFFFF">
+        <th colspan="3" scope="col">
+          <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
               <tr>
-                <th>잡채
-                  <img src="/img/1.jpg" alt="">
+                <th height="40" scope="col">
+                  <table width="1000" height="100" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <th width="465" height="100" rowspan="2" scope="col">
+                          <p><a href="http://localhost:3000" target="_self"><img src="img/drk.png" width="235" height="83" border="0" align="left" longdesc="http://localhost:3000"></a></p>
+                        </th>
+                        <td width="540" height="38" scope="col">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td height="35" scope="col" width="540">
+                          <td height="35" scope="col" width="90">
+                            <a href="http://localhost:3000"><span>Home</span></a>
+                          </td>
+                          <td height="35" scope="col" width="90">
+                            <a href="/meniu.html"><span>Meniu</span></a>
+                          </td>
+                          <td height="35" scope="col" width="90">
+                            <a href="/coreea.html"><span>Coreea</span></a>
+                          </td>
+                          <td height="35" scope="col" width="90">
+                            <a href="/galerie.html"><span>Galerie</span></a>
+                          </td>
+                          <td height="35" scope="col" width="90">
+                            <a href="/contact.html"><span>Contact</span></a>
+                          </td>
+                          <td height="35" scope="col" width="90">
+                            <a href="/feedback.html"><span>FeedBack</span></a>
+                          </td>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </th>
               </tr>
+            </tbody>
+          </table>
+        </th>
+      </tr>
+      <tr>
+        <td height="284" colspan="3" bgcolor="#000000" background="img/LHJ_4127.jpg">
+          <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
               <tr>
-                <th>잡채밥</th>
-              </tr>
-              <tr>
-                <th>볶음우동</th>
-              </tr>
-              <tr>
-                <th>비빔국수</th>
-              </tr>
-              <tr>
-                <th>짜장면</th>
+                <th height="284" scope="col">
+                  <!-- <div id="wowslider-container1">
+                    <div class="ws_images">
+                      <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;"><img src="data1/images/1.jpg" alt="" title="" id="wows1_0" style="width: 100%;"></div>
+                      <ul style="position: absolute; top: 0px; animation: none; width: 1000%; left: -300%; display: none;">
+                        <li style="width: 10%; font-size: 0px;"><a href="index.html"><img src="data1/images/1.jpg" alt="" title="" id="wows1_0" style="visibility: visible;"></a></li>
+                        <li style="width: 10%; font-size: 0px;"><a href="index.html"><img src="data1/images/6.jpg" alt="" title="" id="wows1_1" style="visibility: visible;"></a></li>
+                        <li style="width: 10%; font-size: 0px;"><a href="index.html"><img src="data1/images/2.jpg" alt="" title="" id="wows1_2" style="visibility: visible;"></a></li>
+                        <li style="width: 10%; font-size: 0px;"><a href="index.html"><img src="data1/images/3.jpg" alt="" title="" id="wows1_3" style="visibility: visible;"></a></li>
+                        <li style="width: 10%; font-size: 0px;"><a href="index.html"><img src="data1/images/4.jpg" alt="" title="" id="wows1_4" style="visibility: visible;"></a></li>
+                        <li style="width: 10%; font-size: 0px;"><a href="index.html"><img src="data1/images/5.jpg" alt="" title="" id="wows1_5" style="visibility: visible;"></a></li>
+                      </ul>
+                      <div style="position: absolute; padding: 0px; z-index: 11; right: 5px; bottom: 2px;"><a style="background-color: rgb(228, 239, 235); color: rgb(131, 127, 128); position: relative; display: none; font-size: 11px; width: auto; height: auto; font-family: &quot;Lucida Grande&quot;; font-weight: normal; font-style: normal; padding: 1px 5px; margin: 0px; border-radius: 5px; outline: none;"
+                          href="http://wowslider.com" target="_blank">WOWSlider.com</a></div><img src="data1/images/4.jpg" alt="" title="" id="wows1_4" style="visibility: visible; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.818902;">
+                      <img
+                        src="data1/images/3.jpg" alt="" title="" id="wows1_3" style="visibility: visible; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.181098;"></div>
+                    <div class="ws_bullets">
+                      <div> <a href="#" title="" class="">1</a>
+                        <a href="#" title="" class="">2</a>
+                        <a href="#" title="" class="">3</a>
+                        <a href="#" title="" class="">4</a>
+                        <a href="#" title="" class="ws_selbull">5</a>
+                        <a href="#" title="" class="">6</a>
+                        <div class="ws_bulframe" style="display: none; left: -39.43px; margin-top: 0px; margin-bottom: 0px; opacity: 0;">
+                          <div>
+                            <div style="width: 700%; left: -193px;"><img src="data1/tooltips/1.jpg" alt=""><img src="data1/tooltips/6.jpg" alt=""><img src="data1/tooltips/2.jpg" alt=""><img src="data1/tooltips/3.jpg" alt=""><img src="data1/tooltips/4.jpg" alt=""><img src="data1/tooltips/5.jpg"
+                                alt=""></div>
+                          </div><span></span></div>
+                      </div>
+                    </div>
+                    <div class="ws_shadow"></div>
+                    <div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 10; background: rgb(255, 255, 255); opacity: 0;"><a href="http://restaurantkorean.ro/index.html" style="display: block; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;" target=""></a></div><a href="#" class="ws_next"></a><a href="#" class="ws_prev"></a>
+                    <div class="ws-title"
+                      style="display:none"></div>
+                  </div>
+                  <script type="text/javascript" src="engine1/wowslider.js"></script>
+                  <script type="text/javascript" src="engine1/script.js"></script> -->
+                </th>
+                <!-- End WOWSlider.com BODY section -->
               </tr>
             </tbody>
+          </table>
+
+        </td>
+      </tr>
+      <tr>
+        <td height="100" colspan="3" align="center" valign="top" background="img/3.png" bgcolor="#FFFFFF">
+          <table width="948" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr>
+                <th width="512" height="19" rowspan="3" align="center" valign="top" scope="col">&nbsp;</th>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Paste - Pasta</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">1</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col" height="83">
+                  <p>Ceapce - 200 g</p>
+                </td>
+                <td width="171" scope="col" height="83">
+                  <p class="text"> &nbsp;<a href="img/ceapce.jpg" class="top_up"><img src="img/ceapce.jpg" width="100,height=75')&quot;" border="0"></a></p>
+                  <p>
+                  </p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col" height="39">
+                  <p>Spaghete transparente cu legume, ulei si seminte de susan /<br> Noodles (prepared by sweet potatos powder) with vegetables sesame oil </p>
+                </td>
+                <td class="titlu2" scope="col" height="39">38 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">2</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Ceapce bab - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Ceapce bab.jpg" class="top_up"><img src="img/Ceapce bab.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Spaghete transparente cu orez, ulei si seminte de susan / <br> Noodles (prepared by sweet potatos powder) with rice vegetables and sesame oil</td>
+                <td height="19" class="titlu2" scope="col">40 RON</td>
+              </tr>
+              <tr>
+                <td height="6" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">3</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Pokumudong - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Pokumudong.jpg" class="top_up"><img src="img/Pokumudong.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Spaghete din faina de grau cu legume in sos dulce / <br> Stir-fried Noodle with vegetables in sweet sauce</td>
+                <td class="titlu2" scope="col">29 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">4</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Bibimguksu - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/BIBIMGUKSU.jpg" class="top_up"><img src="img/BIBIMGUKSU.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Spaghete cu legume proaspete servite in sos iute / <br> Noodle with fresh vegetables served with hot sauce</td>
+                <td class="titlu2" scope="col">29 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">5</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Jjajangmion - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/jjajangmion.jpg" class="top_up"><img src="img/jjajangmion.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Spaghete cu legume si carne in sos de soia / <br> Noodle with vegetables and meat soybean paste sauce</td>
+                <td height="19" class="titlu2" scope="col">35 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">6</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Ramen - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Ramen.jpg" class="top_up"><img src="img/Ramen.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Noodle coreeni / Korean noodle</td>
+                <td class="titlu2" scope="col">29 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">7</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Mul Naengmyeon – 200 g
+                </td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/mulnaengweb.jpg" class="top_up"><img src="img/mulnaengweb.jpg" width="100" height="75" border="0"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Spaghete coreene cu legume si supa rece / Chewy cold noodles soup</td>
+                <td class="titlu2" scope="col">50 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">8</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Bibim Naengmyeon – 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/bibim.jpg" class="top_up"><img src="img/bibim.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Spaghete coreene cu sos iute / Chewy spicy cold noodles</td>
+                <td class="titlu2" scope="col">50 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Antreuri - Appetizers</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">9</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Mandu - 6 piese (pieces)</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Mandu%206pc-10pc.jpg" class="top_up"><img src="img/Mandu%206pc-10pc.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Pachetele de primavara prajite / Fried spring-rolls
+                </td>
+                <td class="titlu2" scope="col">24 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">10</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Mandu - 10 piese (pieces)</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Mandu%206pc-10pc.jpg" class="top_up"><img src="img/Mandu%206pc-10pc.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Pachetele de primavara prajite / Fried spring-rolls
+                </td>
+                <td height="19" class="titlu2" scope="col">36 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">11</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Dubu kimci - 400 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Dubu%20kimci.jpg" class="top_up"><img src="img/Dubu%20kimci.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Tofu cu kimci, legume si carne de porc - picant / <br> Fried kimci with fresh tofu, vegetables and pork - spicy</td>
+                <td class="titlu2" scope="col">50 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">12</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Kanpunghi - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/kanpunghi.jpg" class="top_up"><img src="img/kanpunghi.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Pui pane preparat cu legume in sos putin picant /<br> Fried chichen prepared with vegetables in little spicy sauce<br>
+                </td>
+                <td class="titlu2" scope="col">34 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">
+                </td>
+                <td width="100" rowspan="2">13
+                </td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Tangsuyuk - 200 g Pui (Chicken)/ Porc (Pork)</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Tangsuyuk.jpg" class="top_up"><img src="img/Tangsuyuk.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Pui sau porc pane preparat cu legume in sos dulce actrisor / <br> Fried chicken (or pork) vegetables prepared in a sweet sour sauce<br>
+                </td>
+                <td class="titlu2" scope="col">34 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Pizza - Pizza</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">14</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Kimcijeon - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Kimcijeon.jpg" class="top_up"><img src="img/Kimcijeon.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Pizza din kimci / Kimci pizza</td>
+                <td class="titlu2" scope="col">35 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">15</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Haemul Pajeon - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Haemul%20Pajeon.jpg" class="top_up"><img src="img/Haemul%20Pajeon.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Pizza cu legume si fructe de mare / Korean pizza with vegetables and seafood</td>
+                <td class="titlu2" scope="col">45 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Supe / Ciorbe - Soups</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">16</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Tengeang cigae - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Tengeang%20cigae.jpg" class="top_up"><img src="img/Tengeang%20cigae.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Supa din pasta de soia cu legume putin picanta / <br> Soy bean paste stew with vegetables little spicy</td>
+                <td class="titlu2" scope="col">35 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">17</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Sundubu - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Sundubu.jpg" class="top_up"><img src="img/Sundubu.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Supa picanta cu legume, carne de porc si tofu maruntit / <br> Spicy stew made with fresh tofu, pork and vegetables</td>
+                <td class="titlu2" scope="col">40 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">18</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Yukejang - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Yukejang.jpg" class="top_up"><img src="img/Yukejang.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Supa picanta cu legume si carne de vita / Spicy stew with vebetables and beef</td>
+                <td class="titlu2" scope="col">40 RON</td>
+              </tr>
+              <tr>
+                <td height="6" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">19</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Kimci cigae - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Kimci%20cigae.jpg" class="top_up"><img src="img/Kimci%20cigae.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Supa picanta din kimci si carne de porc / Kimci stew spicy with pork</td>
+                <td class="titlu2" scope="col">40 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">20</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Mandu - ciangol - 3-4 pers.</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Mandu-ciangol.jpg" class="top_up"><img src="img/Mandu-ciangol.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col"> Supa picanta cu pachetele de primavara si carne de porc / <br> Spicy stew with pork and spring rolls</td>
+                <td class="titlu2" scope="col">120 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">21</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Bude cigae - 3-4 pers.</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Bude%20cigae.jpg" class="top_up"><img src="img/Bude%20cigae.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Supa picanta din kimci, sunca si carnati / Spicy soup with kimci, ham and sausage</td>
+                <td class="titlu2" scope="col">120 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">22</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Bulgoghi ciangol - 3-4 pers.
+                </td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Bulgoghi%20ciangol.jpg" class="top_up"><img src="img/Bulgoghi%20ciangol.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Supa nepicanta de vita cu legume / Beef soup with vegetables</td>
+                <td class="titlu2" scope="col">120 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">23</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Mae-un tang - 3 pers</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Mae-un%20tang.jpg" class="top_up"><img src="img/Mae-un%20tang.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Supa picanta din peste, fructe de mare si legume / Spicy seafood soup with vegetables</td>
+                <td class="titlu2" scope="col">180 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FFFF" class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">24</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Dakpokumtang - 4 pers. - rezervare 5 ore</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Dakpokumtang.jpg" class="top_up"><img src="img/Dakpokumtang.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td bgcolor="#00FFFF" class="text" scope="col">Supa de pui cu legume inabusite in sos picant / Chichen stir-fried dish soup in spicy sauce</td>
+                <td bgcolor="#00FFFF" class="titlu2" scope="col">95 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2" bgcolor="#00FFFF">&nbsp;</td>
+                <td width="100" rowspan="2" bgcolor="#00FFFF">25</td>
+                <td width="7" rowspan="2" bgcolor="#00FFFF" scope="col">&nbsp;</td>
+                <td width="600" bgcolor="#00FFFF" class="ws-title" scope="col">Samghietang - 3-4 pers. - rezervare 24 ore</td>
+                <td width="171" bgcolor="#00FFFF" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Samghietang.jpg" class="top_up"><img src="img/Samghietang.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" bgcolor="#00FFFF" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td bgcolor="#00FFFF" class="text" scope="col">Supa de pui cu ginseng si orez / Ginsegn chicken soup</td>
+                <td bgcolor="#00FFFF" class="titlu2" scope="col">130 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">26</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Jjampongmion - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Jjampongmion.jpg" class="top_up"><img src="img/Jjampongmion.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Supa cu spaghete, fructe de mare si legume in sos picant / <br> Noodle with vegetables and seafoods in spicy sauce</td>
+                <td class="titlu2" scope="col">45 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Specilitatea bucatarului - Chef's Specialty</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">27</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Kimbap (legume(vegetables) / sunca(ham))</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Kimbap.jpg" class="top_up"><img src="img/Kimbap.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Rulouri de orez cu legume si sunca invelite in alge marine / <br> Rice rolls with vegetables covered with seaweed<br>
+                </td>
+                <td class="titlu2" scope="col">25 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">28</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Sundae ciongol - 4 pers.</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Sundae%20ciongol.jpg" class="top_up"><img src="img/Sundae%20ciongol.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carnati coeeeni hotpot cu legume si sos / Sundae hot pot with vegetables and sauce</td>
+                <td class="titlu2" scope="col">200 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Orez / Risotto - Rise</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">29</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Pokum bab - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Pokum%20bab%20orez%20prajit%20cu%20legume.jpg" class="top_up"><img src="img/Pokum%20bab%20orez%20prajit%20cu%20legume.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Orez prajit cu legume / Fried rice with vegetables
+                  <br>
+                </td>
+                <td class="titlu2" scope="col">30 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">30</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Pokum bab - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/POKUM%20BAB%20orez%20prajit%20cu%20sunca.jpg" class="top_up"><img src="img/POKUM%20BAB%20orez%20prajit%20cu%20sunca.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Orez prajit cu legume si sunca / Fried rice with vegetables-ham<br>
+                </td>
+                <td class="titlu2" scope="col">30 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">31</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Pokum bab - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Pokum%20bab%20orez%20prajit%20cu%20kimci.jpg" class="top_up"><img src="img/Pokum%20bab%20orez%20prajit%20cu%20kimci.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col"> Orez prajit cu kimci / Fried rice with vegetables-kimci <br>
+                </td>
+                <td class="titlu2" scope="col">30 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">32</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Bibimbab - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/bibimbab.jpg" class="top_up"><img src="img/bibimbab.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Orez cu legume proaspete servit in sos iute / <br> Rice with fresh vegetables served with hot sauce</td>
+                <td class="titlu2" scope="col">40 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">33</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Sasimi tap bab</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Sasimi%20tap%20bab.jpg" class="top_up"><img src="img/Sasimi%20tap%20bab.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Orez cu sasimi si sos picant / Rice with sasimi and spicy sauce</td>
+                <td class="titlu2" scope="col">45 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">34</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Californian Rolls - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/californian%20rolls.jpg" class="top_up"><img src="img/californian%20rolls.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Rulouri de orez cu legume (ton) sunca invelite in alge de mare / <br> Rolls of rice with vegetable (tuna) bacon wrapped in seaweed </td>
+                <td class="titlu2" scope="col">30 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">35</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Ddokpokki (picant/nepicant)</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Ddokpokki.jpg" class="top_up"><img src="img/Ddokpokki.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Batoane de orez cu legume picante/nepicante / <br> Stir-fried rice cake with vegetables in spicy sauce/not spicy</td>
+                <td class="titlu2" scope="col">35 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">36</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Orez simplu (Steam rice)</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/orez.jpg" class="top_up"><img src="img/orez.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">-</td>
+                <td class="titlu2" scope="col">6 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Pui - Chicken</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">37</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Dakalbi - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Dakalbi.jpg" class="top_up"><img src="img/Dakalbi.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Pulpe de pui in sos picant cu legume / Chicken in spicy sauce with vegetables</td>
+                <td class="titlu2" scope="col">45 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">38</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Rajoghi - 2 pers.</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Rajoghi.jpg" class="top_up"><img src="img/Rajoghi.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Pui pane preparat cu legume in sos stridie / <br> Fried chicken with vegetables prepared in a oyster sauce</td>
+                <td class="titlu2" scope="col">59 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Carne de vita - Beef</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">39</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Bulgoghi tap bab - 200 g
+                </td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Bulgoghi%20tap%20bab.jpg" class="top_up"><img src="img/Bulgoghi%20tap%20bab.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carne de vita cu orez in sos dulce / Beef with rice in sweet sauce</td>
+                <td class="titlu2" scope="col">38 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">40</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Bulgoghi</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Bulgoghi.jpg" class="top_up"><img src="img/Bulgoghi.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carne de vita marinata in sos de soia / Beef in sweet sauce </td>
+                <td class="titlu2" scope="col">50 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">41</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Ddokgalbi - 200g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Ddakgalbi.jpg" class="top_up"><img src="img/Ddakgalbi.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Vita marinata in sos dulce / Beef marinated in sweet sauce</td>
+                <td class="titlu2" scope="col">43 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">42</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">B.B.Q. - 200 g vita</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/B.B.Q%20pork,vita.jpg" class="top_up"><img src="img/B.B.Q%20pork,vita.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carne de vita marinata la gratar / Beef marinated in sweet sauce</td>
+                <td class="titlu2" scope="col">60 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Carne de porc - Pork</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">43</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Jeyuk pokum - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text">&nbsp;<a href="img/Jeyuk%20pokum.jpg" class="top_up"><img src="img/Jeyuk%20pokum.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carne de porc cu legume in sos picant / Pork with vegetables in spicy sauce</td>
+                <td class="titlu2" scope="col">45 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">44</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Jeyuk tap bab - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Jeyuk%20tap%20bab.jpg" class="top_up"><img src="img/Jeyuk%20tap%20bab.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carne de porc cu legume si orez in sos picant / Pork with vegetables and rice in spicy sauce</td>
+                <td class="titlu2" scope="col">38 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">45</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">B.B.Q. - 200 g porc (pork)</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/B.B.Q%20pork,vita.jpg" class="top_up"><img src="img/B.B.Q%20pork,vita.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carne de porc marinata la gratar / Pork marinated in sweet sauce</td>
+                <td class="titlu2" scope="col">45 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">46</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Doncas - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Doncas.jpg" class="top_up"><img src="img/Doncas.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carne de porc prajita in sos dulce acrisor / Fried pork in sweet sour sauce</td>
+                <td class="titlu2" scope="col">38 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2" class="titlu2">&nbsp;</td>
+                <td width="100" rowspan="2">47</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Samghiopsal - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Samghiopsal.jpg" class="top_up"><img src="img/Samghiopsal.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Fleica de porc / Pork</td>
+                <td class="titlu2" scope="col">42 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">48</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Kimci samgioptim - 3-4 pers.
+                </td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Kimci%20samgioptim.jpg" class="top_up"><img src="img/Kimci%20samgioptim.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Kimci cu fleica de porc gatita in abur, sos picant / Kimci with pork steamed dish, spicy sauce</td>
+                <td class="titlu2" scope="col">180 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">49</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Timdak - 4 pers.</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Timdak.jpg" class="top_up"><img src="img/Timdak.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carne de pui gatita in abur si sos de soia / Chicken steamed dish in soia sauce</td>
+                <td class="titlu2" scope="col">95 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">50</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Ciocpal - 3-4 pers.</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Ciocpal.jpg" class="top_up"><img src="img/Ciocpal.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Ciolan de porc fiert in sos de soia / Pig's trotters </td>
+                <td class="titlu2" scope="col">190 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2" bgcolor="#00FFFF">&nbsp;</td>
+                <td width="100" rowspan="2" bgcolor="#00FFFF">51</td>
+                <td width="7" rowspan="2" bgcolor="#00FFFF" scope="col">&nbsp;</td>
+                <td width="600" bgcolor="#00FFFF" class="ws-title" scope="col">Bossam - 2 pers. - rezervare 24 ore</td>
+                <td width="171" bgcolor="#00FFFF" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Bossam.jpg" class="top_up"><img src="img/Bossam.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" bgcolor="#00FFFF" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td bgcolor="#00FFFF" class="text" scope="col">Napa impachetat cu carne de porc / Napa wraps with pork</td>
+                <td bgcolor="#00FFFF" class="titlu2" scope="col">120 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Peste si Fructe de mare - Fish and seafood</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">52</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Fishcas - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Fishcas.jpg" class="top_up"><img src="img/Fishcas.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Peste prajit in sos dulce acrisor / Fried fish in sweetsour sauce</td>
+                <td class="titlu2" scope="col">38 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">53</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Ojing-uh pokum - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Ojing-uh%20pokum.jpg" class="top_up"><img src="img/Ojing-uh%20pokum.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Calamar cu legume in sos picant / Calamar with vegetables in spicy sauce</td>
+                <td class="titlu2" scope="col">48 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">54</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Ciocumi pokum - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Ciocumi%20pokum.jpg" class="top_up"><img src="img/Ciocumi%20pokum.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Pui de caracatita cu legume in sos picant / Baby Octopus and vegetables in spicy sauce</td>
+                <td class="titlu2" scope="col">50 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">55</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Ojing-uh tap bab</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Ojing-uh%20tap%20bab.jpg" class="top_up"><img src="img/Ojing-uh%20tap%20bab.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Calamar cu orez in sos picant / Calamar with rice in spicy sauce</td>
+                <td class="titlu2" scope="col">42 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">56</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Sora mucim - 200 g</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Sora%20mucim.jpg" class="top_up"><img src="img/Sora%20mucim.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Carne de scoica cu legume in sos picant / <br> Seasoned Top shell with vegetables and spicy sauce</td>
+                <td class="titlu2" scope="col">85 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">57</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Kansioseu - 3-4 pers.</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Kansioseu.jpg" class="top_up"><img src="img/Kansioseu.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">Creveti pane preparati cu legume in sos putin picant / <br> Fried shrimp prepared with vegetables in little spicy sauce</td>
+                <td class="titlu2" scope="col">93 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr bgcolor="#00FF00">
+                <th bgcolor="#00CC00" class="titlu" scope="col">Bauturi coreene</th>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+              <tr>
+                <td><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">58</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Soju</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/soju.jpg" class="top_up"><img src="img/soju.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">350ml (19,5% alcool)</td>
+                <td class="titlu2" scope="col">40 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">59</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Macali</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Macali.jpg" class="top_up"><img src="img/Macali.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">750ml (6% alcool)</td>
+                <td class="titlu2" scope="col">40 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">60</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Hite</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/hite.jpg" class="top_up"><img src="img/hite.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">360ml</td>
+                <td class="titlu2" scope="col">20 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">61</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Aloe</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Aloe-(Soft-drink).jpg" class="top_up"><img src="img/Aloe-(Soft-drink).jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">500ml (soft drink)</td>
+                <td class="titlu2" scope="col">15 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr class="titlu2">
+                <td width="9" rowspan="2">&nbsp;</td>
+                <td width="100" rowspan="2">62</td>
+                <td width="7" rowspan="2" scope="col">&nbsp;</td>
+                <td width="600" class="ws-title" scope="col">Welch’s</td>
+                <td width="171" scope="col">
+                  <p class="text"> &nbsp;<a href="img/Welchs-500x500.jpg" class="top_up"><img src="img/Welchs-500x500.jpg" width="100" height="75"></a></p>
+                </td>
+                <td width="13" rowspan="2" scope="col">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="text" scope="col">355ml (soft drink)</td>
+                <td class="titlu2" scope="col">10 RON</td>
+              </tr>
+              <tr>
+                <td height="2" colspan="6"><img src="img/linie.png" width="900" height="6"></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        </td>
+      </tr>
+      <tr class="copyright">
+        <td height="207" colspan="3" align="center" valign="bottom" background="img/4.png" class="font2">
+          <table width="900" height="100" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr align="center" class="copyright1">
+                <td height="2" colspan="5" scope="col"><img src="images1/linie1.png" width="900" height="2"></td>
+              </tr>
+              <tr align="center" class="font1">
+                <td width="375" height="47" scope="col">
+                  <p class="font1">충남대학교 대학로 99, 유성구 </p>
+                  <p class="font1">대전광역시, 대한민국</p>
+                </td>
+                <td width="4" height="47" scope="col">
+                  <p class="font11"><img src="images1/linie2.png" width="2" height="50"></p>
+                </td>
+                <td width="141" height="47" scope="col">
+                  <p class="font1"> 010 4425 2068</p>
+                  <p class="font1"> 010 3050 6420</p>
+                </td>
+                <th width="4" height="47" scope="col"><img src="images1/linie2.png" width="2" height="50"></th>
+                <td width="376" class="font11" scope="col">
+                  <p>평일 12:00 ~ 22:30</p>
+                  <p>토요일 및 공휴일 14:00 ~ 22:30</p>
+                </td>
+              </tr>
+              <tr align="center" class="font1">
+                <td height="16" align="left" valign="bottom" scope="col">&nbsp;</td>
+                <td height="16" scope="col">&nbsp;</td>
+                <td height="16" scope="col">&nbsp;</td>
+                <th height="16" scope="col">&nbsp;</th>
+                <td class="font11" scope="col">&nbsp;</td>
+              </tr>
+              <tr align="center" class="font1">
+
+                <td height="32" align="left" valign="bottom" scope="col"><a href="http://s11.flagcounter.com/more/Xw7" target="blank">
+                  <img src="//s11.flagcounter.com/count2/Xw7/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
+                </a></td>
+                <td height="32" scope="col">&nbsp;</td>
+                <td height="32" class="copyright" scope="col"><span style="color:white">2017 © Restaurant Daejeon</span></td>
+                <th height="32" scope="col">&nbsp;</th>
+                <td class="font11" scope="col">&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="copyright">&nbsp;</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="415">&nbsp;</td>
+        <td width="161">&nbsp;</td>
+        <td width="424">&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
 
 
+  <div id="tu_overlay" onclick="TopUp.overlayClose()" style="display: none"></div>
+  <div id="top_up" class="te_top_up" style="display: none">
+    <div class="te_wrapper">
+      <div class="te_title"></div>
+      <table class="te_frame">
+        <tbody>
+          <tr class="te_top">
+            <td class="te_left te_corner">
+              <div class="te_left_filler"></div>
+            </td>
+            <td class="te_middle te_rib"></td>
+            <td class="te_right te_corner">
+              <div class="te_right_filler"></div>
+            </td>
+          </tr>
+          <tr class="te_middle">
+            <td class="te_left te_rib"></td>
+            <td class="te_middle">
+              <div class="te_content">
+                <!-- Content -->
+              </div>
+            </td>
+            <td class="te_right te_rib"></td>
+          </tr>
+          <tr class="te_bottom">
+            <td class="te_left te_corner"></td>
+            <td class="te_middle te_rib"></td>
+            <td class="te_right te_corner">
+
+            </td>
+          </tr>
+        </tbody>
       </table>
-
-    </article>
-
-    <footer>
-      <div>
-        <p>
-          대전광역시 유성구 대학로99
-          오원재
-          박병훈
-        </p>
-      </div>
-      <div>
-        <a href="http://s11.flagcounter.com/more/Xw7">
-<img src="//s11.flagcounter.com/count2/Xw7/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
-        </a>
-      </div>
-    </footer>
+      <div class="te_controls" style="display: none"><a class="te_previous_link" onclick="TopUp.previous()"></a><a class="te_next_link" onclick="TopUp.next()"></a></div><a class="te_close_link" onclick="TopUp.close()" style="display: none"></a></div>
   </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+
+  <div id="temp_up" class="te_top_up te_transparent">
+    <div class="te_wrapper">
+      <div class="te_title"></div>
+      <table class="te_frame">
+        <tbody>
+          <tr class="te_top">
+            <td class="te_left te_corner">
+              <div class="te_left_filler"></div>
+            </td>
+            <td class="te_middle te_rib"></td>
+            <td class="te_right te_corner">
+              <div class="te_right_filler"></div>
+            </td>
+          </tr>
+          <tr class="te_middle">
+            <td class="te_left te_rib"></td>
+            <td class="te_middle">
+              <div class="te_content">
+                <!-- Content -->
+              </div>
+            </td>
+            <td class="te_right te_rib"></td>
+          </tr>
+          <tr class="te_bottom">
+            <td class="te_left te_corner"></td>
+            <td class="te_middle te_rib"></td>
+            <td class="te_right te_corner"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="te_controls" style="display: none">
+        <a class="te_previous_link" onclick="TopUp.previous()"></a><a class="te_next_link" onclick="TopUp.next()"></a></div><a class="te_close_link" onclick="TopUp.close()" style="display: none"></a></div>
+  </div>
+  <table id="tu_center_wrapper" style="display: none">
+    <tbody>
+      <tr valign="middle">
+        <td id="tu_centered_content" align="center">
+          <!-- Top ups -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="tu_loader" style="display: none"></div>
+</body>
+
 </html>

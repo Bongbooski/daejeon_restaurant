@@ -1,16 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="utf-8">
-  <title>Restaurant Daejeon</title>
-  <!-- <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/bootstrap.min.css" rel="stylesheet"> -->
   <style type="text/css" media="screen">
-    .breadcrumb1 {}
-
     .te_overflow {
       overflow: hidden !important
     }
@@ -76,7 +68,7 @@
     .te_title {
       width: 100%;
       color: white;
-      font-family: "Nanum Gothic", "Arial";
+      font-family: "Lucida Grande", "Arial";
       font-size: 11px;
       position: absolute;
       text-align: center;
@@ -131,7 +123,7 @@
       width: 100%;
       height: 100%;
       position: absolute;
-      /*background: url(images/top_up/loader.gif) no-repeat 50% 50%;*/
+      background: url(images/top_up/loader.gif) no-repeat 50% 50%;
       display: block;
       z-index: 1003
     }
@@ -141,7 +133,7 @@
       height: 10px !important;
       bottom: 12px !important;
       right: 10px !important;
-      /*background-image: url(images/top_up/dashboard/sprite.png) !important;*/
+      background-image: url(images/top_up/dashboard/sprite.png) !important;
       background-position: 0 0 !important
     }
 
@@ -153,7 +145,7 @@
 
     .te_dashboard .te_corner,
     .te_dashboard .te_rib {
-      /*background-image: url(images/top_up/dashboard/sprite.png)*/
+      background-image: url(images/top_up/dashboard/sprite.png)
     }
 
     .te_dashboard .te_top,
@@ -170,7 +162,7 @@
     }
 
     .te_dashboard .te_middle .te_middle {
-      /*background: url(images/top_up/dashboard/middle.png)*/
+      background: url(images/top_up/dashboard/middle.png)
     }
 
     .te_dashboard .te_top .te_left {
@@ -216,7 +208,7 @@
       margin-left: -33px;
       padding-left: 5px;
       bottom: 35px;
-      /*background-image: url(images/top_up/dashboard/sprite.png);*/
+      background-image: url(images/top_up/dashboard/sprite.png);
       background-position: 0 -178px
     }
 
@@ -224,7 +216,7 @@
     .te_dashboard .te_next_link {
       width: 31px;
       height: 29px;
-      /*background-image: url(images/top_up/dashboard/sprite.png)*/
+      background-image: url(images/top_up/dashboard/sprite.png)
     }
 
     .te_dashboard .te_previous_link {
@@ -248,7 +240,7 @@
       height: 26px;
       top: -1px;
       right: -6px;
-      /*background-image: url(images/top_up/dashboard/sprite.png);*/
+      background-image: url(images/top_up/dashboard/sprite.png);
       background-position: -20px 0
     }
 
@@ -257,7 +249,7 @@
       height: 10px !important;
       bottom: 12px !important;
       right: 9px !important;
-      /*background-image: url(images/top_up/quicklook/sprite.png) !important;*/
+      background-image: url(images/top_up/quicklook/sprite.png) !important;
       background-position: -75px -181px !important
     }
 
@@ -267,7 +259,7 @@
 
     .te_quicklook .te_corner,
     .te_quicklook .te_rib {
-      /*background-image: url(images/top_up/quicklook/sprite.png)*/
+      background-image: url(images/top_up/quicklook/sprite.png)
     }
 
     .te_quicklook .te_top {
@@ -284,7 +276,7 @@
     }
 
     .te_quicklook .te_middle .te_middle {
-      /*background: url(images/top_up/quicklook/middle.png)*/
+      background: url(images/top_up/quicklook/middle.png)
     }
 
     .te_quicklook .te_top .te_left {
@@ -335,7 +327,7 @@
       width: 31px;
       height: 29px;
       margin: 0 1px;
-      /*background-image: url(images/top_up/quicklook/sprite.png)*/
+      background-image: url(images/top_up/quicklook/sprite.png)
     }
 
     .te_quicklook .te_previous_link {
@@ -359,7 +351,7 @@
       height: 13px;
       top: 7px;
       left: 9px;
-      /*background-image: url(images/top_up/quicklook/sprite.png);*/
+      background-image: url(images/top_up/quicklook/sprite.png);
       background-position: -24px -181px
     }
 
@@ -368,7 +360,7 @@
       height: 10px !important;
       bottom: 22px !important;
       right: 14px !important;
-      /*background-image: url(images/top_up/flatlook/sprite.png) !important;*/
+      background-image: url(images/top_up/flatlook/sprite.png) !important;
       background-position: -75px -181px !important
     }
 
@@ -379,7 +371,7 @@
 
     .te_flatlook .te_corner,
     .te_flatlook .te_rib {
-      /*background-image: url(images/top_up/flatlook/sprite.png)*/
+      background-image: url(images/top_up/flatlook/sprite.png)
     }
 
     .te_flatlook .te_top {
@@ -396,7 +388,7 @@
     }
 
     .te_flatlook .te_middle .te_middle {
-      /*background: url(images/top_up/flatlook/middle.png) repeat-x top*/
+      background: url(images/top_up/flatlook/middle.png) repeat-x top
     }
 
     .te_flatlook .te_top .te_left {
@@ -447,7 +439,7 @@
       width: 31px;
       height: 29px;
       margin: 0 1px;
-      /*background-image: url(images/top_up/flatlook/sprite.png)*/
+      background-image: url(images/top_up/flatlook/sprite.png)
     }
 
     .te_flatlook .te_previous_link {
@@ -471,49 +463,80 @@
       height: 13px;
       top: 6px;
       left: 15px;
-      /*background-image: url(images/top_up/flatlook/sprite.png);*/
+      background-image: url(images/top_up/flatlook/sprite.png);
       background-position: -24px -181px
+    }
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Restaurant Seoul</title>
+  <script type="text/javascript" src="engine1/wowslider.js"></script>
+  <script type="text/javascript" src="engine1/script.js"></script>
+  <script type="text/javascript" src="javascripts/top_up-min.js"></script>
+  <script src="javascripts/jquery/all.js" type="text/javascript" onload="TopUp.init()" onreadystatechange="TopUp.init()"></script>
+  <script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    TopUp.addPresets({
+      "#images a": {
+        fixed: 0,
+        group: "images",
+        modal: 0,
+        title: ""
+      },
+      "#movies": {
+        resizable: 0
+      }
+    });
+  </script>
+
+
+  <link rel="stylesheet" type="text/css" media="screen" href="engine1/style.css">
+
+  <style type="text/css">
+    <!-- body {
+      background-color: #CCC;
+      background-repeat: no-repeat;
+      background-position: top;
+      background-image: url(images1/Background.jpg);
+    }
+
+    -->
+  </style>
+  <style type="text/css" media="screen">
+    #FLVPlayer {
+      visibility: hidden
     }
   </style>
 </head>
 
-<body bgcolor="#CCCCCC">
+<body>
   <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
     <tbody>
-      <tr bgcolor="#FFFFFF">
+      <tr bgcolor="#000000">
         <th colspan="3" scope="col">
           <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
-                <th height="40" background="img/1.png" scope="col">
+                <th height="40" background="images1/1.png" scope="col">
                   <table width="1000" height="100" border="0" cellpadding="0" cellspacing="0">
                     <tbody>
                       <tr>
                         <th width="465" height="100" rowspan="2" scope="col">
-                          <p><a href="http://localhost:3000" target="_self"><img src="img/drk.png" width="235" height="83" border="0" align="left" longdesc="http://localhost:3000"></a></p>
+                          <p><a href="http://www.restaurantkorean.ro/" target="_self"><img src="images1/logo1.png" width="235" height="83" border="0" align="left" longdesc="http://restaurantkorean.ro"></a></p>
                         </th>
-                        <td width="540" height="38" scope="col">&nbsp;</td>
+                        <td width="539" height="38" scope="col">&nbsp;</td>
                       </tr>
                       <tr>
-                        <td height="35" scope="col" width="540">
-                          <td height="35" scope="col" width="90">
-                            <a href="http://localhost:3000"><span>Home</span></a>
-                          </td>
-                          <td height="35" scope="col" width="90">
-                            <a href="/meniu.html"><span>Meniu</span></a>
-                          </td>
-                          <td height="35" scope="col" width="90">
-                            <a href="/coreea.html"><span>Coreea</span></a>
-                          </td>
-                          <td height="35" scope="col" width="90">
-                            <a href="/galerie.html"><span>Galerie</span></a>
-                          </td>
-                          <td height="35" scope="col" width="90">
-                            <a href="/contact.html"><span>Contact</span></a>
-                          </td>
-                          <td height="35" scope="col" width="90">
-                            <a href="/feedback.html"><span>FeedBack</span></a>
-                          </td>
+                        <td height="35" scope="col" width="539">
+                          <div class="breadcrumb">
+                            <ul class="menu">
+                              <li><a href="http://www.restaurantkorean.ro/"><span>Home</span></a></li>
+                              <li><a href="meniu.html"><span>Meniu</span></a></li>
+                              <li><a href="coreea.html"><span>Coreea</span></a></li>
+                              <li><a href="galerie.html"><span>Galerie</span></a></li>
+                              <li><a href="contact.html"><span>Contact</span></a></li>
+                              <li><a href="feedback.html"><span>FeedBack</span></a></li>
+                            </ul>
+                          </div>
                         </td>
                       </tr>
                     </tbody>
@@ -525,12 +548,12 @@
         </th>
       </tr>
       <tr>
-        <td height="284" colspan="3" bgcolor="#000000" background="img/LHJ_4127.jpg">
+        <td height="311" colspan="3" bgcolor="#000000" background="images1/2.png">
           <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
-                <th height="284" scope="col">
-                  <!-- <div id="wowslider-container1">
+                <th height="311" scope="col">
+                  <div id="wowslider-container1">
                     <div class="ws_images">
                       <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;"><img src="data1/images/1.jpg" alt="" title="" id="wows1_0" style="width: 100%;"></div>
                       <ul style="position: absolute; top: 0px; animation: none; width: 1000%; left: -300%; display: none;">
@@ -565,7 +588,7 @@
                       style="display:none"></div>
                   </div>
                   <script type="text/javascript" src="engine1/wowslider.js"></script>
-                  <script type="text/javascript" src="engine1/script.js"></script> -->
+                  <script type="text/javascript" src="engine1/script.js"></script>
                 </th>
                 <!-- End WOWSlider.com BODY section -->
               </tr>
@@ -575,7 +598,7 @@
         </td>
       </tr>
       <tr>
-        <td colspan="3" align="center" valign="top" background="img/3.png" bgcolor="#FFFFFF">
+        <td colspan="3" align="center" valign="top" background="images1/3.png" bgcolor="#FFFFFF">
           <table width="948" border="0" align="center" cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
@@ -587,8 +610,7 @@
               <tr>
                 <td height="18" align="center" valign="bottom" scope="col">&nbsp;</td>
                 <th width="512" rowspan="3" align="center" valign="top" scope="col">
-                  <iframe width="462" height="299" src="https://www.youtube.com/embed/474ZCMo9jpw" frameborder="0" allowfullscreen></iframe>
-                  <!-- <p>
+                  <p>
                     <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="462" height="299" id="FLVPlayer" style="visibility: visible;">
             <param name="movie" value="FLVPlayer_Progressive.swf">
             <param name="quality" value="high">
@@ -597,12 +619,12 @@
             <param name="salign" value="lt">
             <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Halo_Skin_3&amp;streamName=images1/Restaurant_Seoul&amp;autoPlay=false&amp;autoRewind=true">
             <param name="swfversion" value="8,0,0,0">
-
+            <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don’t want users to see the prompt. -->
             <param name="expressinstall" value="Scripts/expressInstall.swf">
-
-
+            <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+            <!--[if !IE]>-->
             <object type="application/x-shockwave-flash" data="FLVPlayer_Progressive.swf" width="462" height="299">
-
+              <!--<![endif]-->
               <param name="quality" value="high">
               <param name="wmode" value="opaque">
               <param name="scale" value="noscale">
@@ -610,20 +632,20 @@
               <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Halo_Skin_3&amp;streamName=images1/Restaurant_Seoul&amp;autoPlay=false&amp;autoRewind=true">
               <param name="swfversion" value="8,0,0,0">
               <param name="expressinstall" value="Scripts/expressInstall.swf">
-
+              <!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
               <div>
                 <h4>Content on this page requires a newer version of Adobe Flash Player.</h4>
                 <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"></a></p>
                 </div>
-
+              <!--[if !IE]>-->
               </object>
-
+                    <!--<![endif]-->
                     </object>
-                  </p> -->
+                  </p>
                 </th>
               </tr>
               <tr>
-                <td height="18" align="center" valign="bottom" scope="col"><span><strong>Restaurant Daejeon</strong></span></td>
+                <td height="18" align="center" valign="bottom" scope="col"><span class="titlu">Restaurant Korean Seoul</span></td>
               </tr>
               <tr>
 
@@ -664,28 +686,28 @@
         </td>
       </tr>
       <tr class="copyright">
-        <td height="207" colspan="3" align="center" valign="bottom" background="img/4.png" class="font2">
+        <td height="207" colspan="3" align="center" valign="bottom" background="images1/4.png" class="font2">
           <table width="900" height="100" border="0" align="center" cellpadding="0" cellspacing="0">
             <tbody>
               <tr align="center" class="copyright1">
-                <td height="2" colspan="5" scope="col"><img src="img/linie1.png" width="900" height="2"></td>
+                <td height="2" colspan="5" scope="col"><img src="images1/linie1.png" width="900" height="2"></td>
               </tr>
               <tr align="center" class="font1">
                 <td width="375" height="47" scope="col">
-                  <p class="font1">충남대학교 대학로 99, 유성구 </p>
-                  <p class="font1">대전광역시, 대한민국</p>
+                  <p class="font1">Strada Locotenent Aviator Mircea Zorileanu </p>
+                  <p class="font1">Nr.89 Sector 1 Bucuresti (Zona Arcul de Triumf)</p>
                 </td>
                 <td width="4" height="47" scope="col">
-                  <p class="font11"><img src="img/linie2.png" width="2" height="50"></p>
+                  <p class="font11"><img src="images1/linie2.png" width="2" height="50"></p>
                 </td>
                 <td width="141" height="47" scope="col">
-                  <p class="font1"> 010 4425 2068</p>
-                  <p class="font1"> 010 3050 6420</p>
+                  <p class="font1"> 072 549 8366</p>
+                  <p class="font1"> 021 667 2119</p>
                 </td>
-                <th width="4" height="47" scope="col"><img src="img/linie2.png" width="2" height="50"></th>
+                <th width="4" height="47" scope="col"><img src="images1/linie2.png" width="2" height="50"></th>
                 <td width="376" class="font11" scope="col">
-                  <p>평일 12:00 ~ 22:30</p>
-                  <p>토요일 및 공휴일 14:00 ~ 22:30</p>
+                  <p> Luni-Sambata 12:00 - 22:30</p>
+                  <p>Duminica: 14:00 - 22:30</p>
                 </td>
               </tr>
               <tr align="center" class="font1">
@@ -696,12 +718,9 @@
                 <td class="font11" scope="col">&nbsp;</td>
               </tr>
               <tr align="center" class="font1">
-
-                <td height="32" align="left" valign="bottom" scope="col"><a href="http://s11.flagcounter.com/more/Xw7" target="blank">
-                  <img src="//s11.flagcounter.com/count2/Xw7/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
-                </a></td>
+                <td height="32" align="left" valign="bottom" scope="col"><a href="http://info.flagcounter.com/Lit7" target="_blank"><img src="http://s06.flagcounter.com/count/Lit7/bg_000000/txt_FFFFFF/border_CCCCCC/columns_4/maxflags_4/viewers_3/labels_0/pageviews_0/flags_0/" alt="Free counters!" border="0"></a></td>
                 <td height="32" scope="col">&nbsp;</td>
-                <td height="32" class="copyright" scope="col"><span style="color:white">2017 © Restaurant Daejeon</span></td>
+                <td height="32" class="copyright" scope="col">2013 © Restaurant Seoul</td>
                 <th height="32" scope="col">&nbsp;</th>
                 <td class="font11" scope="col">&nbsp;</td>
               </tr>
@@ -717,6 +736,88 @@
       </tr>
     </tbody>
   </table>
+  <script type="text/javascript">
+    <!--
+    swfobject.registerObject("FLVPlayer");
+    //-->
+  </script>
+
+
+  <div id="tu_overlay" onclick="TopUp.overlayClose()" style="display: none"></div>
+  <div id="top_up" class="te_top_up" style="display: none">
+    <div class="te_wrapper">
+      <div class="te_title"></div>
+      <table class="te_frame">
+        <tbody>
+          <tr class="te_top">
+            <td class="te_left te_corner">
+              <div class="te_left_filler"></div>
+            </td>
+            <td class="te_middle te_rib"></td>
+            <td class="te_right te_corner">
+              <div class="te_right_filler"></div>
+            </td>
+          </tr>
+          <tr class="te_middle">
+            <td class="te_left te_rib"></td>
+            <td class="te_middle">
+              <div class="te_content">
+                <!-- Content -->
+              </div>
+            </td>
+            <td class="te_right te_rib"></td>
+          </tr>
+          <tr class="te_bottom">
+            <td class="te_left te_corner"></td>
+            <td class="te_middle te_rib"></td>
+            <td class="te_right te_corner"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="te_controls" style="display: none"><a class="te_previous_link" onclick="TopUp.previous()"></a><a class="te_next_link" onclick="TopUp.next()"></a></div><a class="te_close_link" onclick="TopUp.close()" style="display: none"></a></div>
+  </div>
+  <div id="temp_up" class="te_top_up te_transparent">
+    <div class="te_wrapper">
+      <div class="te_title"></div>
+      <table class="te_frame">
+        <tbody>
+          <tr class="te_top">
+            <td class="te_left te_corner">
+              <div class="te_left_filler"></div>
+            </td>
+            <td class="te_middle te_rib"></td>
+            <td class="te_right te_corner">
+              <div class="te_right_filler"></div>
+            </td>
+          </tr>
+          <tr class="te_middle">
+            <td class="te_left te_rib"></td>
+            <td class="te_middle">
+              <div class="te_content">
+                <!-- Content -->
+              </div>
+            </td>
+            <td class="te_right te_rib"></td>
+          </tr>
+          <tr class="te_bottom">
+            <td class="te_left te_corner"></td>
+            <td class="te_middle te_rib"></td>
+            <td class="te_right te_corner"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="te_controls" style="display: none"><a class="te_previous_link" onclick="TopUp.previous()"></a><a class="te_next_link" onclick="TopUp.next()"></a></div><a class="te_close_link" onclick="TopUp.close()" style="display: none"></a></div>
+  </div>
+  <table id="tu_center_wrapper" style="display: none">
+    <tbody>
+      <tr valign="middle">
+        <td id="tu_centered_content" align="center">
+          <!-- Top ups -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="tu_loader" style="display: none"></div>
 </body>
 
 </html>

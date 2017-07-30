@@ -1,36 +1,3 @@
-article h1 {
-  font-size: 20px;
-
-}
-
-header img {
-  float: left;
-  margin-right: 10px;
-
-}
-
-nav {
-
-  margin-bottom: 100px;
-
-  border-bottom: 1px gray solid;
-
-}
-
-nav table {
-
-
-  padding-top: 80px;
-  border: none;
-
-}
-
-article {
-  padding-bottom: 10px;
-  border-bottom: 3px gray solid;
-
-}
-
 #coreea1 {
   border-bottom: 1px gray solid;
 }
